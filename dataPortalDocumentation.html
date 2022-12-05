@@ -1,0 +1,115 @@
+<html>
+<head> 
+<style>
+ol { margin-left:8%; margin-right:8%; font-size:14pt }
+ul { margin-left:8%; margin-right:8%; font-size:14pt }
+table { font-family: arial, sans-serif; border-collapse: collapse; width: 80%; }
+td, th { border: 1px solid #dddddd; text-align: left; padding: 8px; }
+tr:nth-child(even) { background-color: #dddddd; }
+</style>
+</header>
+<body>
+<br>
+<hr>
+<center>
+<H1>GBADs Metadata Portal Documentation</h1>
+</center>
+<hr>
+
+<p style="margin-left:3%; margin-right:3%; font-size:20pt">
+<b>Introduction</b>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+Welcome to the GBADs Metadata Portal and API.  Through this portal you can retrieve metadata related to the GBADs data sources. The metadata is stored in a Neo4j Aura database.
+
+This introductory page contains information on how to use the portal and has a Quick API Guide with common API calls that you can use and adapt.
+</p>
+
+<p style="margin-left:3%; margin-right:3%; font-size:20pt">
+<b>Using the API</b>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+Using the API you can currently get the following: 
+
+<ul>
+<li> Get a list of datasets that currently exist in the KE </li>
+<li> Get a list of species that are available in the data </li> 
+<li> Get the metadata for a dataset </li>
+<li> Search for datasets by country or species </li> 
+
+Future functionality to be anticipated: 
+<li> Search for datasets by country and species </li>
+<li> Search for datasets for a given year, or year range </li> 
+<li> Get API calls, or location of a given dataset to get data from the KE </li> 
+</ul>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+The API is available through an HTML command where the result will be available in JSON. For example: 
+</p>
+
+<ul>
+<li> http://127.0.0.1:8000/get_datasets </li>
+<li> http://127.0.0.1:8000/get_metadata?dataset_name=FAO%20Production:%20Live%20Animals </li>
+<li> http://127.0.0.1:8000/get_species </li>
+<li> http://127.0.0.1:8000/search_country?country=Canada </li>
+</ul>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+You may also access the metadata API through R or python. Examples will be added to GitHub when they are available.
+</p>
+
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<b> API Commands Reference: </b>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<i> http://127.0.0.1:8000/metadata_portal/ </i> 
+<ul>
+<li> This will provide documentation about the GBADs Metadata Portal including how to use the API to get data from the GBADs Metadata Graph Database </li>
+</ul>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<i> http://127.0.0.1:8000/get_datasets </i>
+<ul>
+<li> This will provide a list of the names of all datasets that we currently have metadata for </li>
+<li> Using the name of a dataset, you can search for the metadata </li>
+</ul>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<i> http://127.0.0.1:8000/get_species </i>
+<ul>
+<li> This will provide a list of the species that you can query for </li>
+</ul>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<i> http://127.0.0.1:8000/get_metadata?dataset_name={ name of dataset } </i>
+<ul>
+<li> This will provide all metadata about a given dataset </li>
+<li> Currently you must provide the name of the datast as a parameter </li>
+</ul>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<i>http://127.0.0.1:8000/search_country?country={ name of country }</i>
+<ul>
+<li> This will provide metadata for datasets containing data for a given country </li>
+<li> Currently you can only search by the name of the country but in the future we will add functionality to search using an iso3 code </li>
+</ul>
+</p>
+
+<p style="margin-left:5%; margin-right:5%; font-size:14pt">
+<i>http://127.0.0.1:8000/search_species?species={ species }</i>
+<ul>
+<li> This will provide metadata for datasets containing data related to a given species </li>
+<li> The suggestion is to use the command to get a list of species first, then chose the species you would like to search for </li>
+</ul>
+</p>
+
+</body>
+</html>
